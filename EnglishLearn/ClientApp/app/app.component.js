@@ -17,20 +17,21 @@ var AppComponent = /** @class */ (function () {
         this.tableMode = true; // табличный режим
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.loadProducts(); // загрузка данных при старте компонента  
+        this.loadProducts();
     };
-    // получаем данные через сервис
     AppComponent.prototype.loadProducts = function () {
         var _this = this;
         this.dataService.getProducts()
             .subscribe(function (data) { return _this.products = data; });
     };
-    // сохранение данных
     AppComponent.prototype.save = function () {
         var _this = this;
         if (this.product.id == null) {
             this.dataService.createProduct(this.product)
-                .subscribe(function (data) { return _this.products.push(data); });
+                .subscribe(function (data) {
+                console.log(data);
+                _this.products.push(data.body);
+            });
         }
         else {
             this.dataService.updateProduct(this.product)

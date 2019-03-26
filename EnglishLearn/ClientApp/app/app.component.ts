@@ -2,6 +2,8 @@
 import { DataService } from './data.service';
 import { Product } from './product';
 
+import { HttpResponse } from '@angular/common/http';
+
 @Component({
         selector: 'app',
         templateUrl: './app.component.html',
@@ -16,18 +18,21 @@ export class AppComponent implements OnInit {
         constructor(private dataService: DataService) { }
 
         ngOnInit() {
-                this.loadProducts();    // загрузка данных при старте компонента  
+                this.loadProducts();
         }
-        // получаем данные через сервис
+
         loadProducts() {
                 this.dataService.getProducts()
                         .subscribe((data: Product[]) => this.products = data);
         }
-        // сохранение данных
+
         save() {
                 if (this.product.id == null) {
                         this.dataService.createProduct(this.product)
-                                .subscribe((data: Product) => this.products.push(data));
+                                .subscribe((data: HttpResponse<Product>) => {
+                                        console.log(data);
+                                        this.products.push(data.body);
+                                });
                 } else {
                         this.dataService.updateProduct(this.product)
                                 .subscribe(data => this.loadProducts());
