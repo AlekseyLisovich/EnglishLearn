@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using EnglishLearn.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace EnglishLearn
 {
@@ -32,6 +34,13 @@ namespace EnglishLearn
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();
+
+            // обработка маршрутов, которые не сопоставлены с ресурсам ранее
+            app.Run(async (context) =>
+            {
+                context.Response.ContentType = "text/html";
+                await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
+            });
         }
     }
 }

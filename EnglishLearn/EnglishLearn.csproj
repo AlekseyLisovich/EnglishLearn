@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\data.service.ts" />
+    <None Remove="ClientApp\app\product-detail.component.ts" />
+    <None Remove="ClientApp\app\product-list.component.ts" />
     <None Remove="ClientApp\app\product.ts" />
   </ItemGroup>
 
@@ -16,6 +18,8 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\data.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\product-detail.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\product-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\product.ts" />
   </ItemGroup>
 

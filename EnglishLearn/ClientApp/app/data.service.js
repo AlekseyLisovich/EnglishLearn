@@ -14,6 +14,9 @@ var DataService = /** @class */ (function () {
         this.http = http;
         this.url = "/api/products";
     }
+    DataService.prototype.getProduct = function (id) {
+        return this.http.get(this.url + '/' + id);
+    };
     DataService.prototype.getProducts = function () {
         return this.http.get(this.url);
     };

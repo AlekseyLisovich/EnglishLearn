@@ -10,6 +10,10 @@ export class DataService {
     constructor(private http: HttpClient) {
     }
 
+    getProduct(id: number) {
+        return this.http.get(this.url + '/' + id);
+    }
+
     getProducts() {
         return this.http.get(this.url);
     }
