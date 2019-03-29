@@ -7,7 +7,11 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\data.service.ts" />
+    <None Remove="ClientApp\app\not-found.component.ts" />
+    <None Remove="ClientApp\app\product-create.component.ts" />
     <None Remove="ClientApp\app\product-detail.component.ts" />
+    <None Remove="ClientApp\app\product-edit.component.ts" />
+    <None Remove="ClientApp\app\product-form.component.ts" />
     <None Remove="ClientApp\app\product-list.component.ts" />
     <None Remove="ClientApp\app\product.ts" />
   </ItemGroup>
@@ -18,7 +22,11 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\data.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\not-found.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\product-edit.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\product-create.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\product-detail.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\product-form.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\product-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\product.ts" />
   </ItemGroup>
