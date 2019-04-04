@@ -8,26 +8,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { DataService } from './data.service';
-import { Product } from './product';
-var ProductCreateComponent = /** @class */ (function () {
-    function ProductCreateComponent(dataService, router) {
+import { DataService } from './../data-services/data.service';
+var ProductListComponent = /** @class */ (function () {
+    function ProductListComponent(dataService) {
         this.dataService = dataService;
-        this.router = router;
-        this.product = new Product(); // добавляемый объект
     }
-    ProductCreateComponent.prototype.save = function () {
-        var _this = this;
-        this.dataService.createProduct(this.product).subscribe(function (data) { return _this.router.navigateByUrl("/"); });
+    ProductListComponent.prototype.ngOnInit = function () {
+        this.load();
     };
-    ProductCreateComponent = __decorate([
+    ProductListComponent.prototype.load = function () {
+        var _this = this;
+        this.dataService.getProducts().subscribe(function (data) { return _this.products = data; });
+    };
+    ProductListComponent.prototype.delete = function (id) {
+        var _this = this;
+        this.dataService.deleteProduct(id).subscribe(function (data) { return _this.load(); });
+    };
+    ProductListComponent = __decorate([
         Component({
-            templateUrl: './product-create.component.html'
+            templateUrl: './product-list.component.html'
         }),
-        __metadata("design:paramtypes", [DataService, Router])
-    ], ProductCreateComponent);
-    return ProductCreateComponent;
+        __metadata("design:paramtypes", [DataService])
+    ], ProductListComponent);
+    return ProductListComponent;
 }());
-export { ProductCreateComponent };
-//# sourceMappingURL=product-create.component.js.map
+export { ProductListComponent };
+//# sourceMappingURL=product-list.component.js.map

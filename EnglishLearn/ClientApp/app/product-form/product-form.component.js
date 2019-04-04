@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component, Input } from '@angular/core';
-import { Product } from './product';
+import { Product } from './../view-models/product';
 var ProductFormComponent = /** @class */ (function () {
     function ProductFormComponent() {
     }

@@ -5,30 +5,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app.routing';
+import { RouterModule } from '@angular/router';
 import { ProductListComponent } from './product-list/product-list.component';
-import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { DataService } from './data-services/data.service';
-var AppModule = /** @class */ (function () {
-    function AppModule() {
+var appRoutes = [
+    { path: '', component: ProductListComponent },
+    { path: 'create', component: ProductCreateComponent },
+    { path: 'edit/:id', component: ProductEditComponent },
+    { path: '**', component: NotFoundComponent }
+];
+var AppRoutingModule = /** @class */ (function () {
+    function AppRoutingModule() {
     }
-    AppModule = __decorate([
+    AppRoutingModule = __decorate([
         NgModule({
-            imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
-            declarations: [AppComponent, ProductListComponent, ProductCreateComponent, ProductEditComponent,
-                ProductFormComponent, NotFoundComponent],
-            providers: [DataService],
-            bootstrap: [AppComponent]
+            imports: [
+                RouterModule.forRoot(appRoutes)
+            ],
+            exports: [
+                RouterModule
+            ]
         })
-    ], AppModule);
-    return AppModule;
+    ], AppRoutingModule);
+    return AppRoutingModule;
 }());
-export { AppModule };
-//# sourceMappingURL=app.module.js.map
+export { AppRoutingModule };
+//# sourceMappingURL=app.routing.js.map

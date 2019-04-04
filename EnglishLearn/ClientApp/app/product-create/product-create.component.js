@@ -8,29 +8,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { DataService } from './data.service';
-var ProductListComponent = /** @class */ (function () {
-    function ProductListComponent(dataService) {
+import { Router } from '@angular/router';
+import { DataService } from './../data-services/data.service';
+import { Product } from './../view-models/product';
+var ProductCreateComponent = /** @class */ (function () {
+    function ProductCreateComponent(dataService, router) {
         this.dataService = dataService;
+        this.router = router;
+        this.product = new Product(); // добавляемый объект
     }
-    ProductListComponent.prototype.ngOnInit = function () {
-        this.load();
-    };
-    ProductListComponent.prototype.load = function () {
+    ProductCreateComponent.prototype.save = function () {
         var _this = this;
-        this.dataService.getProducts().subscribe(function (data) { return _this.products = data; });
+        this.dataService.createProduct(this.product).subscribe(function (data) { return _this.router.navigateByUrl("/"); });
     };
-    ProductListComponent.prototype.delete = function (id) {
-        var _this = this;
-        this.dataService.deleteProduct(id).subscribe(function (data) { return _this.load(); });
-    };
-    ProductListComponent = __decorate([
+    ProductCreateComponent = __decorate([
         Component({
-            templateUrl: './product-list.component.html'
+            templateUrl: './product-create.component.html'
         }),
-        __metadata("design:paramtypes", [DataService])
-    ], ProductListComponent);
-    return ProductListComponent;
+        __metadata("design:paramtypes", [DataService, Router])
+    ], ProductCreateComponent);
+    return ProductCreateComponent;
 }());
-export { ProductListComponent };
-//# sourceMappingURL=product-list.component.js.map
+export { ProductCreateComponent };
+//# sourceMappingURL=product-create.component.js.map

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from './data.service';
+import { DataService } from './../data-services/data.service';
 var ProductDetailComponent = /** @class */ (function () {
     function ProductDetailComponent(dataService, activeRoute) {
         this.dataService = dataService;

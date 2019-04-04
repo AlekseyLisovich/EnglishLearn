@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\app.routing.ts" />
     <None Remove="ClientApp\app\data.service.ts" />
     <None Remove="ClientApp\app\not-found.component.ts" />
     <None Remove="ClientApp\app\product-create.component.ts" />
@@ -14,6 +15,7 @@
     <None Remove="ClientApp\app\product-form.component.ts" />
     <None Remove="ClientApp\app\product-list.component.ts" />
     <None Remove="ClientApp\app\product.ts" />
+    <None Remove="ClientApp\typings.d.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,14 +23,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\app\data.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\not-found.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\product-edit.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\product-create.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\product-detail.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\product-form.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\product-list.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\product.ts" />
+    <TypeScriptCompile Include="ClientApp\app\app.routing.ts" />
+    <TypeScriptCompile Include="ClientApp\app\data-services\data.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\not-found\not-found.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\product-edit\product-edit.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\product-create\product-create.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\product-detail\product-detail.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\product-form\product-form.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\product-list\product-list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\view-models\product.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\app\account\client\" />
+    <Folder Include="ClientApp\app\account\shared\" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,8 @@
 
 @Component({
         selector: 'app',
-        templateUrl: './app.component.html'
+        template: `<div class="container body-content">
+                   <router-outlet></router-outlet>
+                   </div>`
 })
 export class AppComponent { }

@@ -11,7 +11,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         Component({
             selector: 'app',
-            templateUrl: './app.component.html'
+            template: "<div class=\"container body-content\">\n                   <router-outlet></router-outlet>\n                   </div>"
         })
     ], AppComponent);
     return AppComponent;
